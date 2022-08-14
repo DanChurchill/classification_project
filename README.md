@@ -1,11 +1,11 @@
 # <a name="top"></a>README TITLE
 ![]()
 
-by: Matthew Dalton
+by: Dan Churchill
 
 <p>
-  <a href="https://github.com/mdalton87" target="_blank">
-    <img alt="Matthew" src="https://img.shields.io/github/followers/mdalton87?label=Follow_Matt&style=social" />
+  <a href="https://github.com/DanChurchill" target="_blank">
+    <img alt="Dan" src="https://img.shields.io/github/followers/DanChurchill?label=Follow_Dan&style=social" />
   </a>
 </p>
 
@@ -22,7 +22,7 @@ by: Matthew Dalton
 [[Conclusion](#conclusion)]
 ___
 
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vR19fsVfxHvzjrp0kSMlzHlmyU0oeTTAcnTUT9dNe4wAEXv_2WJNViUa9qzjkvcpvkFeUCyatccINde/pub?w=1389&amp;h=410">
+
 
 ## <a name="project_description"></a>Project Description:
 [[Back to top](#top)]
