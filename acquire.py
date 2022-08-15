@@ -1,3 +1,10 @@
+import os
+import pandas as pd
+import env
+
+def get_connection(db, user=env.user, host=env.host, password=env.password):
+        return f'mysql+pymysql://{user}:{password}@{host}/{db}'
+
 def get_telco_data():
     """
     Retrieve locally cached data .csv file from the telco dataset
