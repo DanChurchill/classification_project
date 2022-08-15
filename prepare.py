@@ -1,4 +1,6 @@
 import pandas as pd
+from sklearn.model_selection import train_test_split
+
 
 def prep_telco(df):
     """
@@ -21,6 +23,7 @@ def prep_telco(df):
     dummies = pd.get_dummies(df[['gender', 'partner', 'dependents', 'phone_service', 
                              'paperless_billing', 'churn']], drop_first=True)
 
+    df = df.drop(columns=['churn'])
     # rename the dummy columns as necessary and add to df
     dummies.rename(columns = {'churn_Yes':'churn',
                             'paperless_billing_Yes' : 'paperless_billing',
@@ -43,7 +46,7 @@ def prep_telco(df):
     # remove extra columns
     df = df.drop(columns=['gender', 'partner', 'dependents', 'phone_service', 'multiple_lines',
                 'online_security', 'online_backup', 'device_protection', 'tech_support', 
-                'streaming_tv', 'streaming_movies', 'paperless_billing', 'churn',
+                'streaming_tv', 'streaming_movies', 'paperless_billing', 
                 'contract_type', 'payment_type', 'internet_service_type'])
 
 
