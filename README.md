@@ -63,16 +63,47 @@ ___
 ## <a name="dictionary"></a>Data Dictionary  
 [[Back to top](#top)]
 
-### Data Used
 ---
 | Attribute | Definition | Data Type |
 | ----- | ----- | ----- |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
+| customer_id | Unique id for each customer| str |
+| senior_citizen| 1 if customer is a senior citizen | int |
+| tenure | Months of tenure as a customer| int |
+| monthly_charges| The customer's monthly bill| float |
+| total_charges| The customer's total bills since they have been a customer| float|
+| male | 1 if the customer is male | int |
+| multiple_lines_no | 1 if the customer has phone service but only one line | int |
+| multiple_lines_no_phone | 1 if the customer has no phone service | int |
+| multiple_lines_yes | 1 if the customer has multiple phone lines | int |
+| online_security_no | 1 if the customer has internet but no online security | int |
+| online_security_no_internet | 1 if the customer has no internet  | int |
+| online_security_yes | 1 if the customer has online security | int |
+| online_backup_no | 1 if the customer has internet but no online backup | int |
+| online_backup_no_internet | 1 if the customer has no internet  | int |
+| online_backup_yes | 1 if the customer has online backup | int |
+| device_protection_no | 1 if the customer has internet but no device protection | int |
+| device_protection_no_internet | 1 if the customer has no internet  | int |
+| device_protection_yes | 1 if the customer has device protection | int |
+| tech_support_no | 1 if the customer has internet but no tech support | int |
+| tech_support_no_internet | 1 if the customer has no internet  | int |
+| tech_support_yes | 1 if the customer has tech_support | int |
+| streaming_tv_no | 1 if the customer has internet but no streaming tv | int |
+| streaming_tv_no_internet | 1 if the customer has no internet  | int |
+| streaming_tv_yes | 1 if the customer has streaming tv | int |
+| streaming_movies_no | 1 if the customer has internet but no streaming movies | int |
+| streaming_movies_no_internet | 1 if the customer has no internet  | int |
+| streaming_movies_yes | 1 if the customer has streaming movies | int |
+| contract_type_month-to-month | 1 if the customer has a month-to-month contract | int |
+| contract_type_one_year | 1 if the customer has a one year contract  | int |
+| contract_type_two_year | 1 if the customer has a two year contract | int |
+| payment_type_bank_transfer_auto | 1 if the customer pays by automatic bank transfer | int
+| payment_type_credit_card_auto | 1 if the customer pays automatically by credit card | int
+| payment_type_electronic_check | 1 if the customer pays manually by electronic check | int
+| payment_type_mailed_check | 1 if the customer pays manually by mailed check | int
+| internet_type_dsl  | 1 if the customer has DSL internet service |  int
+| internet_type_fiber_optic | 1 if the customer has fiber optic internet service | int
+| internet_type_none | 1 if the customer has no internet | int
+| addon_count | sum of how many internet service add-ons the customer has | int
 
 ***
 
