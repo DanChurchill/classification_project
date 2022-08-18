@@ -5,7 +5,10 @@ from sklearn.model_selection import train_test_split
 def prep_telco(df):
     """
     Performs preparations on the telco DataFrame in order to make it usable for data exploration and modeling
-
+    - Encodes Yes/No columns to binary
+    - Changes column names to lower case, removes spaces and parenthesis
+    - Creates column addon_count, and integer representing the number of internet service add-ons
+    
     Keyword arguments:
     df: a dataframe containing customer data from the telco database
 
@@ -19,12 +22,14 @@ def prep_telco(df):
     df.total_charges = df.total_charges.str.replace(' ', '0')
     df.total_charges = df.total_charges.astype(float)
     
-    # create dummies for columns with binary values (and drop first)
+    # encode binary columns with 1 and 0 instead of 'Yes' and 'No' (dropping first)
     dummies = pd.get_dummies(df[['gender', 'partner', 'dependents', 'phone_service', 
-                             'paperless_billing', 'churn']], drop_first=True)
+                                 'paperless_billing', 'churn']], drop_first=True)
+    
+    # drop the unencoded versions
+    df = df.drop(columns=['churn','partner','dependents', 'phone_service', 'paperless_billing'])
 
-    df = df.drop(columns=['churn'])
-    # rename the dummy columns as necessary and add to df
+    # rename the created dummy columns as necessary 
     dummies.rename(columns = {'churn_Yes':'churn',
                             'paperless_billing_Yes' : 'paperless_billing',
                             'phone_service_Yes': 'phone_service',
@@ -35,7 +40,7 @@ def prep_telco(df):
     # concat to df
     df = pd.concat([df, dummies], axis=1)
 
-    # for columns with 3/4 values, encode and do not drop first column
+    # for columns with 3/4 values, encode and do not drop first
     dummies2 = pd.get_dummies(df[['multiple_lines', 'online_security', 'online_backup', 'device_protection',
                                 'tech_support', 'streaming_tv', 'streaming_movies', 'contract_type', 
                                 'payment_type', 'internet_service_type']], drop_first=False)
@@ -43,14 +48,13 @@ def prep_telco(df):
     # concat to df
     df = pd.concat([df, dummies2], axis=1)
 
-    # remove extra columns
-    df = df.drop(columns=['gender', 'partner', 'dependents', 'phone_service', 'multiple_lines',
-                'online_security', 'online_backup', 'device_protection', 'tech_support', 
-                'streaming_tv', 'streaming_movies', 'paperless_billing', 
-                'contract_type', 'payment_type', 'internet_service_type'])
+    # remove unencoded columns
+    df = df.drop(columns=['gender', 'multiple_lines', 'online_security', 'online_backup', 
+                        'device_protection', 'tech_support', 'streaming_tv', 
+                        'streaming_movies', 'contract_type', 'payment_type', 'internet_service_type'])
 
 
-    # clean up column names.  Lower case, replace spaces with underscore, and shorten add-on names
+    # clean up column names.  Lower case, replace spaces with underscore, remove parenthesis, and shorten add-on names
     df.columns = map(str.lower, df.columns)
     df.columns = df.columns.str.replace(' ', '_')
     df.columns = df.columns.str.replace('_service', '')
@@ -60,6 +64,7 @@ def prep_telco(df):
     # create column with # of add_ons
     df['addon_count'] = df['online_security_yes'] + df['online_backup_yes'] + df['device_protection_yes'] + df['tech_support_yes'] + df['streaming_tv_yes'] + df['streaming_movies_yes']
     
+    # return the prepared DataFrame
     return df
     
 
