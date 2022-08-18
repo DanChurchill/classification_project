@@ -8,7 +8,7 @@ def prep_telco(df):
     - Encodes Yes/No columns to binary
     - Changes column names to lower case, removes spaces and parenthesis
     - Creates column addon_count, and integer representing the number of internet service add-ons
-    
+
     Keyword arguments:
     df: a dataframe containing customer data from the telco database
 
@@ -82,7 +82,7 @@ def my_split(df, target):
     """
 
     # separate into 80% train/validate and test data
-    train_validate, test = train_test_split(df, test_size=.2, stratify=df[target])
+    train_validate, test = train_test_split(df, test_size=.2, stratify=df[target], random_state=333)
 
     # further separate the train/validate data into train and validate
     train, validate = train_test_split(train_validate, 
