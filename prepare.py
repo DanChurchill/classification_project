@@ -60,6 +60,10 @@ def prep_telco(df):
     df.columns = df.columns.str.replace('_service', '')
     df.columns = df.columns.str.replace("automatic", 'auto').str.replace('(', '').str.replace(')', '')
 
+    # remove columns later determined to not be needed
+    df = df.drop(columns=['multiple_lines_no', 'multiple_lines_no_phone', 'device_protection_no_internet', 
+                          'online_backup_no_internet', 'streaming_movies_no_internet', 'streaming_tv_no_internet',
+                          'tech_support_no_internet', 'online_security_no_internet'])
     
     # create column with # of add_ons
     df['addon_count'] = df['online_security_yes'] + df['online_backup_yes'] + df['device_protection_yes'] + df['tech_support_yes'] + df['streaming_tv_yes'] + df['streaming_movies_yes']
