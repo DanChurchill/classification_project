@@ -214,7 +214,7 @@ We saw that monthly charges correlated to churn, and that more add-ons meant hig
 - Customers with Internet Service (particularly those that do not have add-ons) are more likely to churn, especially if their bills are higher.  Making the add-ons less expensive could help retain customers longer.
 
 - Shorter contract types showed higher correlation to churn, and given more time I would have explored that further to determine what other factors drove those customers to churn
-- 
+
 [[Back to top](#top)]
 
 *** 
