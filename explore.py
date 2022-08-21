@@ -23,8 +23,14 @@ def correlation_report(df, target):
 
 
 def churn_plot(df, col):
-    baseline = round(df.churn.mean() ,4)
+    '''
+    Function to display a plot with the binary distribution of a column in a dataframe.  
+    Labels are currently set up to display churn, but they could be changed to utilize this function for another variable
+    '''
+    # calculate baseline mean for the print statements
+    baseline = round(df[col].mean() ,4)
 
+    # display countplot with axis labels and column totals above the bars
     x = sns.countplot(x =col, data = df)
     plt.title('Customers who churn')
     plt.gcf().set_size_inches(12, 6)
@@ -33,17 +39,23 @@ def churn_plot(df, col):
     plt.ylabel('# of Customers')
     plt.bar_label(x.containers[0])
     plt.show()
+
+    # print baseline results these would need to be changed if another column was to be used
     print('Our baseline for predictions is that ', baseline,' of customers churn')
     print('                            and that ',1-baseline,'of customers do not churn')
 
 
 
 def internet_plot(df):
+    '''
+    Function to display a factor plot with the rate of churn for customers that do and do not
+    have internet service 
+    '''
     # create subsets of df for those with/without internet service
     internet = df[df.internet_type_none == 0]
     no_internet = df[df.internet_type_none == 1]
 
-    # get baseline churn rate for horizontal line
+    # get baseline churn rate for the horizontal line
     baseline = round(df.churn.mean() ,4)
 
     # display factorplot
