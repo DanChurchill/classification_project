@@ -91,6 +91,6 @@ def my_split(df, target):
     # further separate the train/validate data into train and validate
     train, validate = train_test_split(train_validate, 
                                        test_size=.25, 
-                                       stratify=train_validate[target])
+                                       stratify=train_validate[target], random_state=333)
 
     return train, validate, test
