@@ -143,7 +143,7 @@ The training data was split into subsets of those that did and did not have inte
 We failed to confirm the null hypothesis and confirmed via visualization that customers without internet service were more likely to churn
 
 ### Exploring Number of Internet Service Add-Ons
-To explore why internet users were more likely to churn we then utilized the add-on_count column by using a Chi^2 test
+To explore why internet users were more likely to churn we then utilized the add-on_count column by using a $Chi^2$ test
 
 - **Hypothesis**
 - $H_0$: 'Churn is independent of the number of add-on services'
