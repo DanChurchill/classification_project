@@ -71,3 +71,4 @@ def internet_plot(df):
     # compare rates of churn in each sample
     print('Churn rate of those with internet is', round(internet.churn.mean(),4))
     print('Churn rate of those without internet is', round(no_internet.churn.mean(),4))
+    
